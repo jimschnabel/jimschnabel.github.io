@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://jimschnabel.github.io/xmlrpc.php">
+
+<title>HOW REAL IS CTE? &#8211; Jim Schnabel</title>
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="alternate" type="application/rss+xml" title="Jim Schnabel &raquo; Feed" href="https://jimschnabel.github.io/feed/">
+<link rel="alternate" type="application/rss+xml" title="Jim Schnabel &raquo; Comments Feed" href="https://jimschnabel.github.io/comments/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/jimschnabel.github.io\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.7.2"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="https://jimschnabel.github.io/wp-includes/css/dist/block-library/style.min.css?ver=5.7.2" type="text/css" media="all">
+<link rel="stylesheet" id="zerif_font-css" href="//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C400italic%7CMontserrat%3A400%2C700%7CHomemade+Apple&#038;subset=latin%2Clatin-ext" type="text/css" media="all">
+<link rel="stylesheet" id="zerif_font_all-css" href="//fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&#038;subset=latin&#038;ver=5.7.2" type="text/css" media="all">
+<link rel="stylesheet" id="zerif_bootstrap_style-css" href="https://jimschnabel.github.io/wp-content/themes/zerif-lite/css/bootstrap.css?ver=5.7.2" type="text/css" media="all">
+<link rel="stylesheet" id="zerif_fontawesome-css" href="https://jimschnabel.github.io/wp-content/themes/zerif-lite/css/font-awesome.min.css?ver=v1" type="text/css" media="all">
+<link rel="stylesheet" id="zerif_style-css" href="https://jimschnabel.github.io/wp-content/themes/zerif-lite/style.css?ver=v1" type="text/css" media="all">
+<link rel="stylesheet" id="zerif_responsive_style-css" href="https://jimschnabel.github.io/wp-content/themes/zerif-lite/css/responsive.css?ver=v1" type="text/css" media="all">
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='zerif_ie_style-css'  href='https://jimschnabel.github.io/wp-content/themes/zerif-lite/css/ie.css?ver=v1' type='text/css' media='all' />
+<![endif]-->
+<script type="text/javascript" src="https://jimschnabel.github.io/wp-includes/js/jquery/jquery.min.js?ver=3.5.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://jimschnabel.github.io/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://jimschnabel.github.io/wp-content/themes/zerif-lite/js/html5.js?ver=5.7.2' id='zerif_html5-js'></script>
+<![endif]-->
+<link rel="https://api.w.org/" href="https://jimschnabel.github.io/wp-json/">
+<link rel="alternate" type="application/json" href="https://jimschnabel.github.io/wp-json/wp/v2/pages/1436">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://jimschnabel.github.io/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://jimschnabel.github.io/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.7.2">
+<link rel="canonical" href="https://jimschnabel.github.io/how-real-is-cte/">
+<link rel="shortlink" href="https://jimschnabel.github.io/?p=1436">
+<link rel="alternate" type="application/json+oembed" href="https://jimschnabel.github.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fhttps://jimschnabel.github.io%2Fhow-real-is-cte%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://jimschnabel.github.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fhttps://jimschnabel.github.io%2Fhow-real-is-cte%2F&#038;format=xml">
+		<!-- Start of StatCounter Code -->
+		<script>
+			<!--
+			var sc_project=12223670;
+			var sc_security="71331c95";
+			      var sc_invisible=1;
+			var scJsHost = (("https:" == document.location.protocol) ?
+				"https://secure." : "http://www.");
+			//-->
+					</script>
+		
+<script type="text/javascript" src="https://secure.statcounter.com/counter/counter.js" async></script>		<noscript><div class="statcounter"><a title="web analytics" href="https://statcounter.com/"><img class="statcounter" src="https://c.statcounter.com/12223670/0/71331c95/1/" alt="web analytics"></a></div></noscript>
+		<!-- End of StatCounter Code -->
+		<style type="text/css" id="custom-background-css">body.custom-background { background-image: url("https://jimschnabel.github.io/wp-content/uploads/jsbkgrnd.jpg"); background-position: left top; background-size: auto; background-repeat: repeat; background-attachment: scroll; }</style>
+	<link rel="icon" href="https://jimschnabel.github.io/wp-content/uploads/js-site-icon-150x150.jpg" sizes="32x32">
+<link rel="icon" href="https://jimschnabel.github.io/wp-content/uploads/js-site-icon-250x250.jpg" sizes="192x192">
+<link rel="apple-touch-icon" href="https://jimschnabel.github.io/wp-content/uploads/js-site-icon-250x250.jpg">
+<meta name="msapplication-TileImage" content="https://jimschnabel.github.io/wp-content/uploads/js-site-icon-300x300.jpg">
+
+</head>
+
+
+	<body class="page-template-default page page-id-1436">
+
+
+
+<div id="mobilebgfix">
+	<div class="mobile-bg-fix-img-wrap">
+		<div class="mobile-bg-fix-img"></div>
+	</div>
+	<div class="mobile-bg-fix-whole-site">
+
+
+<header id="home" class="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+
+	<div id="main-nav" class="navbar navbar-inverse bs-docs-nav" role="banner">
+
+		<div class="container">
+
+			
+			<div class="navbar-header responsive-logo">
+
+				<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+
+				<span class="sr-only">Toggle navigation</span>
+
+				<span class="icon-bar"></span>
+
+				<span class="icon-bar"></span>
+
+				<span class="icon-bar"></span>
+
+				</button>
+
+					<div class="navbar-brand" itemscope itemtype="http://schema.org/Organization">
+
+													<div class="site-title-tagline-wrapper">
+								<h1 class="site-title">
+									<a href="https://jimschnabel.github.io/">
+										Jim Schnabel									</a>
+								</h1>
+
+								
+							</div> <!-- /.site-title-tagline-wrapper -->
+
+						
+					</div> <!-- /.navbar-brand -->
+
+				</div> <!-- /.navbar-header -->
+
+					<nav class="navbar-collapse bs-navbar-collapse collapse" id="site-navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+			<a class="screen-reader-text skip-link" href="#content">Skip to content</a>
+			<ul class="nav navbar-nav navbar-right responsive-nav main-nav-list">
+<li class="page_item page-item-2"><a href="https://jimschnabel.github.io/about-jim-schnabel/">About</a></li>
+<li class="page_item page-item-1393"><a href="https://jimschnabel.github.io/books/">Books</a></li>
+<li class="page_item page-item-1023"><a href="https://jimschnabel.github.io/freelance-pieces/">Freelance pieces</a></li>
+</ul>		</nav>
+		
+		</div> <!-- /.container -->
+
+		
+	</div> <!-- /#main-nav -->
+	<!-- / END TOP BAR -->
+
+<div class="clear"></div>
+
+</header> <!-- / END HOME SECTION  -->
+
+
+<div id="content" class="site-content">
+
+	<div class="container">
+
+				<div class="content-left-wrap col-md-9">				<div id="primary" class="content-area">
+
+			<main itemscope itemtype="http://schema.org/WebPageElement" itemprop="mainContentOfPage" id="main" class="site-main">
+
+				<article id="post-1436" class="post-1436 page type-page status-publish hentry">
+
+	<header class="entry-header">
+
+		<span class="date updated published">23 July 2019</span>
+		<span class="vcard author byline"><a href="https://jimschnabel.github.io/author/js9/" class="fn">Jim</a></span>
+
+				<h1 class="entry-title" itemprop="headline">HOW REAL IS CTE?</h1>
+		
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+
+		<p><em>Public fears about football and neurodegenerative disease have swept far beyond the science.</em></p>
+<p style="text-align: center;"><img loading="lazy" class="aligncenter size-full wp-image-1007" src="https://jimschnabel.github.io/wp-content/uploads/how-real-is-cte.jpg" alt="" width="500" height="351" srcset="https://jimschnabel.github.io/wp-content/uploads/how-real-is-cte.jpg 500w, https://jimschnabel.github.io/wp-content/uploads/how-real-is-cte-300x211.jpg 300w" sizes="(max-width: 500px) 100vw, 500px"></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 14pt;">Since 2005 “chronic traumatic encephalopathy” (CTE) has emerged from obscurity to become, seemingly, one of the great public health crises of the early 21<sup>st</sup> century. The popular media in the US have reported the stories of dozens of former athletes, mostly ex-NFL players, who are said to have died with this mind-destroying disease. Hollywood has made a <a href="http://www.imdb.com/title/tt3322364/">movie</a> about it. The NFL, cast by the media in the role of the callous corporate villain&#8212;the new <a href="http://www.nytimes.com/2016/03/25/sports/football/nfl-concussion-research-tobacco.html?_r=0">Big Tobacco&#8212;</a>and scrambling to stay out in front of the expanding public relations disaster, has agreed to <a href="http://www.cnn.com/2011/12/22/us/sport-nfl-concussion-lawsuits/">set aside</a> massive sums for the compensation of presumed victims and for CTE research. Anyone with significant exposure to head-jarring impacts is now liable to worry that he or she will get CTE and suffer an inexorable decline into depression and dementia. More than <a href="https://en.wikipedia.org/wiki/Junior_Seau">one</a> former American football <a href="http://www.nytimes.com/2011/05/03/sports/football/03duerson.html">player</a> has committed suicide in the belief that he had the disease and was doomed. Others have <a href="http://www.cbsnews.com/news/nfl-veteran-quits-fearing-future-brain-damage/">quit</a> playing while still young, for fear of CTE. Many thousands and perhaps millions of parents across the country—including at least <a href="http://time.com/4158140/concussion-film-bennet-omalu-cte-nfl/">one</a> CTE researcher&#8212;now <a href="http://www.azcentral.com/story/sports/2016/02/09/concussions-football-cte-barrows/80089378/">appear</a> to be <a href="http://www.nytimes.com/2015/12/07/opinion/dont-let-kids-play-football.html">preventing</a> their sons and daughters from playing football and other contact sports.</span></p>
+<p><span style="font-size: 14pt;">However, despite more than a decade of research, powered by tens millions of dollars of funding, essentially all the important questions about CTE remain unanswered. And the little that is known makes it doubtful that ex-NFL players are suffering from serious CTE-related neuropsychiatric symptoms in large numbers. It is even possible that the brain changes commonly described as &#8220;CTE&#8221; lead to clinical disease only rarely.</span></p>
+<p><span style="font-size: 14pt;">That may come as a shock to people who have watched the recent movie <em>Concussion</em>, or have seen the PBS documentary “League of Denial,” or have read the <em>New York Times’s</em> earnest exposés on the NFL and concussions, or have consumed the many other popular media stories&#8212;sprinkled with frightening assertions from real scientists&#8212;about down-and-out ex-athletes found at autopsy to have had CTE, described always as a “<a href="http://articles.latimes.com/2011/may/02/sports/la-sp-dave-duereson-20110503">neurodegenerative disease</a>.”</span></p>
+<p><span style="font-size: 14pt;">But at least in the world of neurodegenerative disease research, prominent scientists have been stepping forward to express just such skepticism.</span></p>
+<p><span style="font-size: 14pt;">“It remains unclear,” stated Harvard researchers in a <a href="https://www.ncbi.nlm.nih.gov/pubmed/26253448">review paper</a> on CTE in <em>Neurology</em> late last year, “whether or not the pathologic findings made postmortem cause the presumed neurobehavioral sequelae [depression, suicide, impulsivity, dementia, etc.] and whether the presumed risk factors, such as sports activity, cerebral concussions, and subconcussive blows, are solely causative of the clinical signs and symptoms.”</span></p>
+<p><span style="font-size: 14pt;">Similarly, a separate team of researchers, from Harvard and other institutions, noted in another recent <a href="https://www.ncbi.nlm.nih.gov/pubmed/26183075">review</a> that: “It has not been established that the described [CTE] pathology, especially in small amounts, can cause complex changes in behavior such as depression, substance abuse, suicidality, personality changes, or cognitive impairment.”</span></p>
+<p><span style="font-size: 14pt;">Even more strongly, Loyola University Medical Center neurologist Christopher Randolph has <a href="https://www.ncbi.nlm.nih.gov/pubmed/24412888">argued</a> that although CTE “has received widespread media attention and is treated in the lay press as an established disease, characterized by suicidality and progressive dementia . . . [t]here currently are no controlled epidemiological data to suggest that retired athletes are at increased risk for dementia or that they exhibit any type of unique neuropathology. . . . Until further controlled studies are completed, it appears to be premature to consider CTE a verifiable disease.”</span></p>
+<p><span style="font-size: 14pt;">Yet another recent review <a href="http://www.nature.com/labinvest/journal/v95/n6/full/labinvest201554a.html">paper</a>, by University of Maryland School of Medicine neuropathologist Rudolph Castellani, described CTE as “a paradigm in search of evidence.”</span></p>
+<p><span style="font-size: 14pt;">“At present,” Castellani told me, “the only objective conclusion one can draw is that CTE is an <a href="https://en.wikipedia.org/wiki/Immunohistochemistry">immunohistochemical</a> curiosity in need of further study.”</span></p>
+<p><span style="font-size: 14pt;"><strong>The origin of CTE</strong></span></p>
+<p><span style="font-size: 14pt;">Studies of sports-related concussions and other forms of mild traumatic brain injury (mTBI) have long suggested that these events are <a href="http://www.ncbi.nlm.nih.gov/pubmed/22271691">typically followed</a> by full recoveries. However, no one denies that more severe TBIs, and even some seemingly mild ones—especially if <a href="http://www.ncbi.nlm.nih.gov/pubmed/25748121">repetitive</a>—can lead to long-term <a href="https://www.ncbi.nlm.nih.gov/pubmed/23757503">cognitive</a> impairment and other neuropsychiatric symptoms. A form of TBI-related neuronal damage called “<a href="https://en.wikipedia.org/wiki/Diffuse_axonal_injury">diffuse axonal injury</a>,” which can cause a progressive impairment of cognition—and brings about coma and death in severe cases—is now a very active focus of research, and techniques have been developed to detect it with brain scans. Neurologists also are keenly interested in finding out whether TBIs, including the mild ones experienced repetitively by collision-sport players, increase the risk of <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1738550/">Alzheimer’s disease</a>, <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3270814/">Parkinson’s disease</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/14617722/">fronto-temporal dementia</a> (FTD) and <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2239342/">ALS</a>, as some epidemiological studies have suggested.</span></p>
+<p><span style="font-size: 14pt;">As a consequence of jolts to the head, CTE is supposed to be in a class by itself, easily distinguishable from other disorders. Boston University (BU) researcher Ann McKee told me in a 2011 <a href="http://www.dana.org/News/Details.aspx?id=43184">interview</a> that CTE “is very distinctive: it’s not any other neuropathological or neurodegenerative disease . . . It’s a very distinct disorder that has only been described in individuals who’ve had repetitive brain trauma.”</span></p>
+<p><span style="font-size: 14pt;">So what is CTE, then?</span></p>
+<p><span style="font-size: 14pt;">Unfortunately, even this core question has no settled answer. And when one looks into the origin of the disease in the medical literature, it’s not hard to see why.</span></p>
+<p><span style="font-size: 14pt;">The CTE of the 21<sup>st</sup> century popular media stories and medical papers—the CTE affecting football players, other collision-sport athletes and even bomb-blast victims— is <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2995699/">said</a> to be essentially the same as a neurodegenerative syndrome first described in boxers almost ninety years ago. But there are clear differences between the new CTE and the old one.</span></p>
+<p><span style="font-size: 14pt;">“For some time,” <a href="http://jama.jamanetwork.com/article.aspx?articleid=260461">wrote</a> the pathologist Harrison S. Martland, in the seminal paper on the boxers’ syndrome in the <em>Journal of the American Medical Association</em> in 1928, “fight fans and promoters have recognized a peculiar condition occurring among prize fighters which, in ring parlance, they speak of as ‘punch drunk’.”</span></p>
+<p><span style="font-size: 14pt;"><a href="https://jimschnabel.github.io/wp-content/uploads/2016/04/Harrison-S-Martland.jpg"><img loading="lazy" class="wp-image-841 size-full aligncenter" src="https://jimschnabel.github.io/wp-content/uploads/2016/04/Harrison-S-Martland.jpg" alt="Harrison S Martland" width="166" height="277"></a></span></p>
+<p><span style="font-size: 14pt;">Martland observed that this punch-drunk syndrome typically became evident with a dragging of one leg, or an unsteady gait, along with a general slowing of movements, hesitancy of speech, and possibly tremors in the hands—much like the early signs of Parkinson’s disease. “Later on, in more severe cases,” Martland wrote, “there may develop a peculiar tilting of the head, a marked dragging of one or both legs, a staggering, propulsive gait with the facial characteristics of the parkinsonian syndrome, or a backward swaying of the body, tremors, vertigo and deafness. Finally, marked mental deterioration may set in necessitating commitment to an asylum.”</span></p>
+<p><span style="font-size: 14pt;">In the 1930s, this parkinsonism-dementia condition acquired new names in the medical literature, including “traumatic encephalopathy” (<a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1039021/">1934</a>) and “dementia pugilistica” <a href="http://www.scopus.com/record/display.uri?eid=2-s2.0-0005984841&amp;origin=inward&amp;txGid=0">(1937)</a>. The boxer Muhammad Ali famously developed a <a href="http://articles.latimes.com/1987-07-16/sports/sp-4337_1_muhammad-ali">similar disorder</a> in the late 1970s and early 80s, although the seeming absence of cognitive impairment led doctors to diagnose Ali with a boxing-induced “Parkinson’s syndrome.” In any case, by the end of the 1980s, “<a href="https://www.ncbi.nlm.nih.gov/pubmed/3693310">chronic traumatic encephalopathy</a>” had sprung up as one of the terms used for ex-boxers’ parkinsonism/dementia.</span></p>
+<p><span style="font-size: 14pt;"><a href="https://jimschnabel.github.io/wp-content/uploads/2016/04/ali-now.jpg"><img loading="lazy" class="aligncenter size-full wp-image-835" src="https://jimschnabel.github.io/wp-content/uploads/2016/04/ali-now.jpg" alt="ali-now" width="183" height="203"></a></span></p>
+<p><span style="font-size: 14pt;">Note that parkinsonism was the central feature of the old, boxers’ CTE. And yet it would play essentially no role in the new, football players’ CTE.</span></p>
+<p><span style="font-size: 14pt;"><strong>Mike Webster and the new CTE</strong></span></p>
+<p><span style="font-size: 14pt;">The new CTE era began in 1997 when a former star lineman for the Pittsburgh Steelers, Mike Webster, asked a lawyer to help him apply to the NFL for disability compensation. Webster had shown signs of impairments in memory, mood and impulse control within a few years of his retirement from the NFL after the 1990 season. A local newspaper <a href="http://www.post-gazette.com/ae/movies/2014/10/17/A-life-off-center-Mike-Webster-s-battles/stories/201410090319">profile</a> published in 1997 noted that he was at the time “homeless, unemployed, deep in debt, beset with medical ailments, lacking health insurance, in the midst of a divorce, in the care of a psychiatrist and on medication, and involved in a complex lawsuit over real estate investments.” Two years later he was arrested for forging prescriptions for the stimulant Ritalin.</span></p>
+<p><span style="font-size: 14pt;"><a href="https://jimschnabel.github.io/wp-content/uploads/2016/04/mike-webster.jpg"><img loading="lazy" class="aligncenter size-full wp-image-837" src="https://jimschnabel.github.io/wp-content/uploads/2016/04/mike-webster.jpg" alt="mike webster" width="300" height="212"></a></span></p>
+<p><span style="font-size: 14pt;">That newspaper profile mentioned in passing that Webster suffered from parkinsonism, but without any details of the symptoms. Later, more deeply researched journalistic accounts of his last days would mention a plethora of other medical problems, but not parkinsonism. Was that symptom just tacked onto his list of health issues by someone familiar with the existing CTE literature, in order to bolster his NFL disability claim?</span></p>
+<p><span style="font-size: 14pt;">The gist of that disability claim, backed by statements from four doctors, was that the former Steeler&#8217;s neuropsychiatric issues probably had been caused by head impacts suffered during his playing days. The NFL eventually sent an academic neurologist to examine him, the neurologist agreed that Webster’s impairments were plausibly football-related (there was no way he could have reached a <em>definitive</em> conclusion on this question) and the league agreed to pay significant disability compensation.</span></p>
+<p><span style="font-size: 14pt;">Credit for the recognition of the “new CTE” in football players has been given to Bennet Omalu, the pathologist who autopsied Webster. However, Webster’s own doctors were the first to claim publicly&#8212;in February 1999, at a <a href="https://books.google.com/books?id=pE7RBAAAQBAJ&amp;pg=PA316&amp;lpg=PA316&amp;dq#v=onepage&amp;q&amp;f=false">press conference</a> after Webster&#8217;s prescription-forging arrest&#8212;that he had the syndrome described in 1928 by Martland. The comment of one of those doctors was <a href="http://www.nytimes.com/2002/09/25/sports/mike-webster-50-dies-troubled-football-hall-of-famer.html">cited</a> in the <em>New York Times’s</em> obituary for Webster on September 25, 2002, the day after Webster’s death from a heart attack in a Pittsburgh hospital<em>:</em></span></p>
+<p style="padding-left: 30px;"><span style="font-size: 14pt;">Dr. Fred Jay Krieg, a clinical psychologist, said Webster had “the football version of punch drunk.”</span></p>
+<p style="padding-left: 30px;"><span style="font-size: 14pt;">“It doesn&#8217;t get better,” Krieg added. ”You get more and more demented. It’s sad.”</span></p>
+<p><span style="font-size: 14pt;">On September 28, three days after those comments appeared in the <em>Times</em>, Webster’s body was autopsied by Omalu, then a junior pathologist at the Allegheny County medical examiner’s office. The cause of death was the heart attack, but Omalu, perhaps knowing about the “punch drunk” claim and wanting to make a name for himself, decided to examine the ex-NFL star’s brain. With the help of some academic neurologists and neuropathologists, he wrote up his findings as the first-ever description of football CTE, in a paper that <a href="http://www.ncbi.nlm.nih.gov/pubmed/15987548">appeared</a> in the journal <em>Neurosurgery</em> in 2005.</span></p>
+<p><span style="font-size: 14pt;">Three physicians who consulted for the NFL wrote a <a href="http://www.ncbi.nlm.nih.gov/pubmed/16639303/">letter</a> to <em>Neurosurgery</em> challenging Omalu’s findings, pointing to discrepancies between Webster’s case and boxers’ CTE&#8212;neuropathological discrepancies as well as differences in the pattern of symptoms. They noted, for example, that Webster had no documented history of parkinsonism.</span></p>
+<p><span style="font-size: 14pt;">That letter has since been cited as an example of the NFL’s “coverup” of the CTE epidemic. As Omalu put it dramatically in the 2013 “League of Denial” documentary: “You can’t go against the NFL. They’ll <em>squash</em> you.”</span></p>
+<p><span style="font-size: 14pt;">But the discrepancies remain. After Webster’s death, the reported “CTE symptoms” of ex-NFL players who have died with apparent CTE neuropathology have included depression, suicidality, impulse-control problems and memory loss&#8212;but not parkinsonism.</span></p>
+<p><span style="font-size: 14pt;">This basic difference between old CTE and new CTE is obvious enough for me to have noticed just from glancing quickly at the literature. But there are many more differences that neurologists and neuropathologists have noted. As Andrew Gardner, Grant Iverson and Paul McCrory summed up in a 2014 <a href="http://bjsm.bmj.com/content/48/2/84.full">review</a>: “Critical differences between the older descriptions of CTE (the ‘classic’ syndrome) and the recent descriptions (the ‘modern’ syndrome) exist in the age of onset, natural history, clinical features, pathological findings and diagnostic criteria, which suggests that modern CTE is a different syndrome.”</span></p>
+<p><span style="font-size: 14pt;">The fact that football CTE is so different from boxing CTE is important: It means that, whereas boxing CTE is already established as a clinically real and serious disease, researchers shouldn&#8217;t just assume that football CTE has the same clinical validity&#8212;they should assess it separately before coming to any conclusion in that regard.</span></p>
+<p><span style="font-size: 14pt;"><strong>An evolving pattern of neuropathology</strong></span></p>
+<p><span style="font-size: 14pt;">Some put the term “CTE neuropathology” in quotes because they are not yet sure that it represents&#8212;as the term <em>pathology</em> implies&#8212;a symptom-producing disease process. Others, including Castellani, stick with completely neutral terms, such as “immunohistochemical curiosity.”</span></p>
+<p><span style="font-size: 14pt;">Whatever term one wants to use, neuropathologists who investigated boxers’ CTE in the 20th century eventually came to see it, in part, as a “tauopathy,” i.e., a disease involving the abnormal deposition in brain cells of large, hyperphosphorylated aggregates of the tau protein—aggregates that microscopically resemble “tangles” and “threads.” Similar-looking tangles and threads of tau are found in Alzheimer&#8217;s, but usually in other parts of the brain. Alzheimer’s also features “plaques” of amyloid beta protein aggregates, and boxers’ CTE initially was said to lack those.</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;">McKee and colleagues have found that “CTE” tau tangles in ex-NFL players tend to appear distinctively around small blood vessels at the bottoms of the dips—the sulci—of the cortex’s many folds, especially in the frontal and temporal lobes. But in other respects, the picture of CTE as a sharply defined tauopathy has been muddied in recent years. It now seems to be acknowledged by everyone in the field that a CTE-type distribution of tau tangles often appears along <a href="http://www.ncbi.nlm.nih.gov/pubmed/19535999">with amyloid plaques</a>, with an <a href="http://www.ncbi.nlm.nih.gov/pubmed/23208308">Alzheimer&#8217;s-like distribution of tau tangles</a>, with “<a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3624697/">Lewy body</a>” alpha-synuclein aggregates of the type seen in Lewy Body dementia, and with <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2995699/">TDP-43 protein</a> aggregates like those normally seen in ALS and FTD.</span></p>
+<p><span style="font-size: 14pt;">One big question here is to what extent the protein-aggregate deposits and other brain abnormalities in a person with a history of repetitive TBI represents “CTE” as opposed to a better known condition. <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3624697/">Studies</a> out of BU suggest that the distinction is easily made. Studies elsewhere have suggested otherwise. For example, a 2013 University of Toronto autopsy <a href="http://www.ncbi.nlm.nih.gov/pubmed/23745112">study</a> of six ex-Canadian Football League players with “histories of multiple concussions and significant neurological decline” found that one had Alzheimer’s, one had ALS, and one had Parkinson’s; the remaining three had signs of CTE in their brains but also “co-morbid pathology of cancer, vascular disease, and [Alzheimer’s]”—in other words, not a single clear-cut case of CTE.</span></p>
+<p><span style="font-size: 14pt;">At the moment, McKee and several other CTE researchers are working, under the auspices of NIH, to forge a <a href="https://www.ncbi.nlm.nih.gov/pubmed/26667418">consensus</a> definition of CTE neuropathology. However, as researcher William Barr, chief of neuropsychology at New York University’s Langone School of Medicine, told me recently, “there are still groups that have differing views of what the pathology should look like.”</span></p>
+<p><span style="font-size: 14pt;"><strong>A nearly universal neurodegenerative disease among NFL players?</strong></span></p>
+<p><span style="font-size: 14pt;">Probably the most striking suggestion so far from CTE research is that CTE-type brain accumulations of tau tangles may be highly prevalent among former football players. McKee and colleagues <a href="http://www.pbs.org/wgbh/frontline/article/new-87-deceased-nfl-players-test-positive-for-brain-disease/">revealed</a> to the media last September that among the 91 ex-NFL players’ brains donated to them for study, the apparent signs of CTE were detectable in 87—and in 131 of 165 brains from a broader group of ex-football players including former college players.</span></p>
+<p><span style="font-size: 14pt;">As the BU researchers have acknowledged, their brain bank is not an unbiased sample. Still, BU is not alone in finding an apparently high prevalence of CTE-type tau deposits in ex-athletes’ brains. In a <a href="https://www.ncbi.nlm.nih.gov/pubmed/26518018">study</a> published late last year, researchers at the Mayo Clinic in Jacksonville, Fla. examined tissue from a large brain bank for people who had died with neurodegenerative disorders. Of the 66 brains from people with a documented history of playing contact sports, 21 (32%) showed evidence of a CTE-type pattern of tau tangles. The researchers did not detect this pattern in any of 198 samples from people who had no history of playing contact sports.</span></p>
+<p><span style="font-size: 14pt;">Those are alarming figures—if the CTE-type pattern of tau tangles does represent a clinically real disease, as BU researchers typically assert without qualification. <em>Newsweek’s</em> <a href="http://www.newsweek.com/2015/10/09/degenerative-brain-disease-nearly-universal-among-nfl-players-374076.html">headline</a> for their story on the BU study read: “Degenerative Brain Disease Nearly Universal Among NFL Players.”</span></p>
+<p><span style="font-size: 14pt;">However scientists <em>don’t yet know</em> whether these tau tangles in football-CTE brains reflect true, symptomatic neurodegeneration, i.e., a loss of synapses and neurons that causes clinically evident impairments of mood, executive and cognitive functions.</span></p>
+<p><span style="font-size: 14pt;">In boxers’ CTE, the connection between brain pathology and symptoms is typically easier to see. A visible loss of important, pigmented neurons from the small midbrain region called the substantia nigra—one of the first parts of the brain to take a hit in Parkinson’s disease—is a common aspect of the neuropathology and one that clearly corresponds to parkinsonian movement impairments. Shrinkage of other brain structures is often evident too. In football CTE, however, no study has ever convincingly demonstrated a connection between the principal marker of the condition in the brain&#8212;the tau tangles&#8212;and the supposed clinical features such as suicidality and dementia. Even in Alzheimer&#8217;s research, scientists despite strong suspicions have <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3234452/">never shown conclusively</a> that tau tangles per se <em>cause</em> the massive losses of synapses and neurons that bring about Alzheimer&#8217;s dementia. Some scientists <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3182296/">suspect</a> that the large protein aggregates seen in neurodegenerative diseases are often relatively benign, and that the actual neurodegeneration&#8212;for the clinically real diseases, that is&#8212;is driven instead by smaller, less detectable aggregates.<br>
+</span></p>
+<p><span style="font-size: 14pt;">To my knowledge, the popular media stories about CTE have never mentioned any of the known caveats about tau-tangle pathology. In fact they typically assert that the presence of these large protein aggregates equals disease. Here are some representative sentences from the book version of <em>League of Denial,</em> with the dubious assertions italicized:<em><br>
+</em></span></p>
+<p style="padding-left: 30px;"><span style="font-size: 14pt;">She [McKee] pointed out the brown splotches representing neurofibrillary tangles of tau protein <em>that had suffocated the cells</em>. This always had been <em>the most powerful evidence</em>. <em>The tangles were indisputable signs of disease</em>, and there was little or no beta-amyloid, which meant it wasn’t Alzheimer’s.</span></p>
+<p><span style="font-size: 14pt;">It also has become clear in the past decade that modest numbers of tau tangles normally accumulate in the human brain as it ages, and don&#8217;t necessarily cause symptoms, and therefore shouldn&#8217;t necessarily be considered a sign of disease. Scientists recently <a href="http://www.ncbi.nlm.nih.gov/pubmed/25348064">proposed</a> giving this phenomenon a specific clinical name: primary age-related tauopathy (PART):</span></p>
+<p style="padding-left: 30px;"><span style="font-size: 14pt;">Many autopsy studies have reported brains with neurofibrillary tangles that are indistinguishable from those of Alzheimer&#8217;s disease, in the absence of amyloid plaques. . . . Symptoms in persons with PART usually range from normal to amnestic cognitive changes, <em>with only a minority exhibiting profound impairment</em>. Because cognitive impairment is often mild, existing clinicopathologic designations, such as &#8220;tangle-only dementia&#8221; and &#8220;tangle-predominant senile dementia&#8221;, are imprecise and not appropriate for most subjects. <em>PART is almost universally detectable at autopsy among elderly individuals . . . </em>[italics mine]</span></p>
+<p><span style="font-size: 14pt;">Note that although researchers may have observed cognitive impairment in people later found to have PART, they certainly have not shown that the tau pathology <em>caused</em> the impairment. Cognitive decline occurs normally in aging for many reasons.</span></p>
+<p><span style="font-size: 14pt;">Older brains also are known to accumulate other supposed signs of neurodegeneration, including amyloid-beta plaques, TDP-43 aggregates, and <a href="http://www.ncbi.nlm.nih.gov/pubmed/15751230">alpha-synuclein</a> aggregates, without any obvious symptoms of disease. As Gardner et al put it in their 2014 review: “neuropathological abnormalities are found in approximately 40% of neuropsychologically normal patients.”</span></p>
+<p><span style="font-size: 14pt;">In the light of that reality, Castellani has argued that Mike Webster&#8217;s tau tangles&#8212;at least as depicted in the brain-slice images in Omalu et al&#8217;s 2005 paper&#8212;seem to have been much too sparse to be clinically relevant. Considering all the hits Webster took in his football career, Castellani <a href="https://youtu.be/d9-JvPZVUbk?t=432">told</a> a sports concussion conference last year, &#8220;It&#8217;s actually a very healthy looking 50-year old brain.&#8221; (Even Omalu noted that Webster&#8217;s brain seemed grossly normal at autopsy&#8211;by contrast, boxer-CTE brains commonly show shrinkage and other obvious signs of trauma and degeneration.)</span></p>
+<p><span style="font-size: 14pt;">Castellani at the same conference presented a <a href="https://youtu.be/d9-JvPZVUbk?t=897">case</a> from his own brain-bank of a former boxer who had died with extensive CTE-type tau tangles, yet had seemed mentally intact up to the day of his death (of cardiovascular disease). The man, according to an interview with his wife, had been &#8220;normal, healthy, productive, good father, no psychiatric disturbances, no neurological disturbances.&#8221;</span></p>
+<p><iframe loading="lazy" title="2015 Sport Concussion Summit - Rudy Castellani, MD - Long-term Effects" width="640" height="360" src="https://www.youtube.com/embed/d9-JvPZVUbk?start=897&#038;feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<p><span style="font-size: 14pt;">That&#8217;s not to say that one should dismiss tau tangles as nothing to worry about. Given their association with Alzheimer&#8217;s and other progressive, sometimes fatal tauopathies, it&#8217;s reasonable to <em>suspect</em> that a dense accumulation of such tangles in a brain reflects the presence of a neurodegenerative process that will eventually cause dementia or other clinically significant signs and symptoms.</span></p>
+<p><span style="font-size: 14pt;">The problem is that this suspicion just hasn’t been properly investigated in CTE cases, let alone proved—yet some researchers have decided to go ahead anyway and make strong and frightening public assertions about CTE&#8217;s clinical reality, e.g.:</span></p>
+<p style="padding-left: 30px;"><span style="font-size: 14pt;">“It’s tragic that Dave Duerson took his own life, but it’s very meaningful that he recognized the symptoms of the disorder—it validates this condition,” said Dr. Ann McKee, the neuropathologist who examined Duerson’s brain. She said she found indisputable evidence of C.T.E. in the tissue samples, with “no evidence of any other disorder.” [<a href="http://www.nytimes.com/2011/05/03/sports/football/03duerson.html?_r=0">NY Times</a>]</span></p>
+<p style="padding-left: 30px;"><span style="font-size: 14pt;">Duerson&#8217;s case was &#8220;moderately advanced,&#8221; McKee said. &#8220;The likelihood is that if he hadn&#8217;t had the CTE, he wouldn&#8217;t have developed those symptoms that he was experiencing at the end of his life and perhaps he wouldn&#8217;t have been compelled to end his life.&#8221; [<a href="http://espn.go.com/chicago/nfl/news/story?id=6465271">ESPN</a>]</span></p>
+<p style="text-align: center;"><span style="font-size: 14pt;"><a href="https://jimschnabel.github.io/wp-content/uploads/2016/04/mckee-pic.jpg"><img loading="lazy" class="aligncenter wp-image-832" src="https://jimschnabel.github.io/wp-content/uploads/2016/04/mckee-pic.jpg" alt="mckee pic" width="587" height="395" srcset="https://jimschnabel.github.io/wp-content/uploads/2016/04/mckee-pic.jpg 657w, https://jimschnabel.github.io/wp-content/uploads/2016/04/mckee-pic-300x201.jpg 300w, https://jimschnabel.github.io/wp-content/uploads/2016/04/mckee-pic-305x205.jpg 305w" sizes="(max-width: 587px) 100vw, 587px"></a></span></p>
+<p><span style="font-size: 14pt;">And here is Bennet Omalu, claiming recently that ex-NFL star O.J. Simpson (currently in jail on a robbery and kidnapping <a href="http://www.nytimes.com/2008/10/04/world/americas/04iht-simpson.1.16687098.html">conviction</a>) was “more likely than not” suffering from CTE.</span></p>
+<p style="padding-left: 30px;"><span style="font-size: 14pt;">“I would bet my medical license on it,” said Omalu.</span></p>
+<p style="padding-left: 30px;"><span style="font-size: 14pt;">CTE is believed to be caused by repeated blows to the head. It has been found mostly in athletes who play contact sports, such as football.</span></p>
+<p style="padding-left: 30px;"><span style="font-size: 14pt;">Omalu has not examined Simpson personally and CTE can only be diagnosed after death via an examination of brain tissue, but the doctor says he can identify the tell-tale signs of CTE’s behavioral symptoms, which he said include explosive, impulsive behavior, impaired judgment, criminality and even mood disorders. [<a href="http://abcnews.go.com/US/concussion-doctor-bet-medical-license-oj-simpson-degenerative/story?id=36587331">ABC News</a>]</span></p>
+<p><span style="font-size: 14pt;">As for the CTE risk to children, Omalu has said:</span></p>
+<p style="padding-left: 30px;"><span style="font-size: 14pt;">My son is 6. I wouldn’t let [him] near any football field. And if any coach asks my son to play football, I’ll sue that coach, and I’ll sue the school. [<a href="http://time.com/4158140/concussion-film-bennet-omalu-cte-nfl/">Time</a>]</span></p>
+<p style="text-align: center;"><span style="font-size: 14pt;"><a href="https://jimschnabel.github.io/wp-content/uploads/2016/04/bennet-omalu.jpg"><img loading="lazy" class="aligncenter size-full wp-image-903" src="https://jimschnabel.github.io/wp-content/uploads/2016/04/bennet-omalu.jpg" alt="bennet-omalu" width="472" height="318" srcset="https://jimschnabel.github.io/wp-content/uploads/2016/04/bennet-omalu.jpg 472w, https://jimschnabel.github.io/wp-content/uploads/2016/04/bennet-omalu-300x202.jpg 300w, https://jimschnabel.github.io/wp-content/uploads/2016/04/bennet-omalu-305x205.jpg 305w" sizes="(max-width: 472px) 100vw, 472px"></a></span></p>
+<p><span style="font-size: 14pt;"><strong>The evidence against</strong></span></p>
+<p><span style="font-size: 14pt;">Insupportable statements like those have helped provoke the recent pushback from skeptical neurologists and neuropathologists, who point out that the convincing studies—tracking large groups of ex-athletes and controls over years, recording their medical conditions as they age and ultimately examining their brains—just haven’t been done yet.</span></p>
+<p><span style="font-size: 14pt;">As Barr put it in an <a href="http://www.dana.org/News/Details.aspx?id=43184">interview</a> with me five years ago: “They have to start taking cohorts to study together. For example, take the class of 1960 at a big football-powerhouse university, and compare the men who were on the football team to those who were on the debate team.” So far no study like that has been set up, although several studies now planned or underway should provide useful information about CTE’s clinical relevance.</span></p>
+<p><span style="font-size: 14pt;">In general, prospective cohort studies are difficult, expensive, and very time-consuming—it can take a decade or more for enough people in an aging cohort to die (and have their brains examined postmortem) to give such a study the statistical power it needs. One line of research now aims to find ways to detect CTE pathology in the living, for example with tau PET scans, to speed up the search for a link between CTE neuropathology and symptoms. Either way, though, reasonably conclusive results are probably several years off, at the very least. As Harvard’s William Meehan and colleagues concluded—mildly—in their recent <em>Neurology</em> review, “The current lack of prospective data and properly designed case-control studies limits the current understanding of CTE.”</span></p>
+<p><span style="font-size: 14pt;">Nevertheless there is already a considerable amount of evidence that bears at least indirectly on the question of CTE’s clinical reality. As I see it, that evidence weighs very much <em>against</em> the scare stories. In the above-mentioned Mayo Clinic study, for example, there was no significant difference, in terms of expected &#8220;CTE&#8221; neuropsychiatric symptoms (as documented in medical records), between the ex-athletes with CTE-type tau tangles and those without them.</span></p>
+<p><span style="font-size: 14pt;">Another <a href="http://www.neurology.org/content/early/2012/09/05/WNL.0b013e31826daf50.abstract">study</a> that conflicts with the fearmongering about CTE was conducted by researchers at the US Centers for Disease Control (CDC) and published in 2012. The CDC scientists found that the 3,439 NFL players who had been active for at least five years during 1959-88 were on average living <em>longer</em> than other men their age. They had only 53% of the expected mortality, including a lower-than-expected death rate from suicide.</span></p>
+<p><span style="font-size: 14pt;">In other words, it appears that something about playing NFL football (perhaps just being fit enough to do so) has benefits that vastly outweigh any mortality risk from CTE or other forms of neurodegeneration. Is this not relevant to the entire discussion about contact sports and their health risks? Why wasn&#8217;t it front-page news?</span></p>
+<p><span style="font-size: 14pt;">To be clear, I’m not suggesting that ex-NFL players don’t suffer at all from the thousands of head knocks experienced in an ordinary career. Though the absolute numbers behind the death-category statistics were very small, and thus might represent only statistical &#8220;noise,&#8221; the former players tracked in that CDC study died with Alzheimer’s four times more often than expected for men their age, four times more often with ALS, and three times more often with any “brain or nervous system disorder.”</span></p>
+<p><span style="font-size: 14pt;">There was also a 2014 clinical <a href="https://www.ncbi.nlm.nih.gov/pubmed/25177413">study</a> of 45 ex-NFL players, age 30-60, which found that several had signs of impact damage in the brain, detectable by sophisticated MRI techniques. And although none of the ex-players had anything as serious as dementia, and no clear pattern of symptoms emerged in the group (i.e., no evidence of a uniform &#8220;CTE&#8221; syndrome), neuropsychological testing showed “isolated impairments in 11 players (24%)” and nine players (20%) indicated symptoms of moderate or severe depression on standard questionnaires.</span></p>
+<p><span style="font-size: 14pt;">Ironically the lead author of that study was Ira Casson, a neurologist at Hofstra North Shore-Long Island Jewish School of Medicine who had been a consultant to the NFL and had led the charge against Omalu’s 2005 paper. Casson earlier in his career had become an expert on boxing CTE, and helped draw <a href="http://www.si.com/vault/1983/04/11/619344/too-many-punches-too-little-concern">attention </a>to the dangers of that sport, but later found the evidence for the clinical reality of football CTE less convincing. He was <a href="http://www.nytimes.com/2009/11/25/sports/football/25concussion.html">drummed out</a> of the NFL’s concussion committee in 2009 under pressure from a US c<a href="https://lindasanchez.house.gov/media-center/press-releases/linda-sanchez-statement-courts-rejection-nfl-settlement-deal-january-14">ongresswoman</a> and the NFL Players’ Association, due to his skepticism.<br>
+</span></p>
+<p><span style="font-size: 14pt;">The bottom line, with regard to the published research on football CTE anyway, is that repeated head-jarring events may indeed result in brain abnormalities. Some of those abnormalities may be CTE-type tau tangles. In some cases, perhaps, CTE-type tau tangles will cause clinically evident symptoms. But no study has ever convincingly tied these CTE tangles to any symptom, and the evidence so far suggests that the tangles cause serious symptoms rarely if at all. How could that be? Maybe the CTE pattern of tau tangles reflects a process that is truly degenerative but progresses very slowly. Maybe in many cases it stops progressing. Maybe&#8212;conceivably anyway&#8212;the tangles are inherently benign.</span></p>
+<p><span style="font-size: 14pt;">Castellani told me: “clearly, &#8216;CTE pathology&#8217; is benign in many cases.”</span></p>
+<p><span style="font-size: 14pt;"><strong>Anecdotes and alternatives</strong></span></p>
+<p><span style="font-size: 14pt;">“Anecdotes do not make scientifically valid evidence,” Casson once complained at a CTE research conference, in a scene included in PBS&#8217;s “League of Denial” documentary. In the context of the film, that statement seemed to confirm Casson’s assigned role as the NFL’s <a href="http://www.nytimes.com/2009/11/20/sports/football/20concussions.html?_r=0">denier-in-chief</a>.</span></p>
+<p><span style="font-size: 14pt;">Yet it is true that nearly all of what the public “knows” about CTE has come from frightening anecdotes about troubled ex-athletes dying before their time and testing positive, postmortem, for CTE neuropathology. Tragic stories like these are the bread and butter of popular journalism. Unfortunately the popular journalists who have stoked the CTE scare don&#8217;t understand, or simply don&#8217;t care, that the anecdotes they have reported may be not just invalid but also extremely misleading.</span></p>
+<p><span style="font-size: 14pt;">Here is a typical sentence from the <em>League of Denial </em>book: &#8220;The drumbeat of accounts of mentally disabled players like Ted Johnson kept growing louder.&#8221; To these reporters, and presumably the vast majority of their readers, that &#8220;drumbeat of accounts&#8221; constitutes conclusive evidence that playing football leads to mental disability. But do ex-NFL players <em>on the whole</em> have a higher rate of mental disability than other non-football-playing men of their age, weight, etc.? That&#8217;s the question a scientist would ask. A scientist also would know that for every story in the <em>New York Times</em> about an ex-NFL player dying young with mental problems, there might be two or three, or ten or twenty or fifty unreported, un-newsworthy cases of ex-NFL players with concussion histories who are <a href="https://www.bloomberg.com/news/features/2017-02-09/steve-young-is-an-athlete-who-s-actually-good-at-finance"><em>compos mentis</em></a> and living to ripe old ages.</span></p>
+<p><span style="font-size: 14pt;">A scientist moreover understands that when a former NFL player is depressed, has suicidal thoughts, or has difficulty remembering things, these troubles are not necessarily attributable to football. This should be obvious and yet it is a caveat that, like the one about anecdotes, has been almost universally ignored in popular media accounts of CTE.</span></p>
+<p><span style="font-size: 14pt;">It is not hard to find alternative explanations for the symptoms of ailing ex-NFL players. Mike Webster, for example, apparently made heavy use of anabolic steroids in his playing days—there was even evidence of it in his heart structure at autopsy. Chronic steroid use has long been known to cause profound effects on the brain, including aggression, depression, impaired judgment, and paranoia. One recent <a href="http://www.mcleanhospital.org/news/2015/06/15/brain-imaging-study-suggests-long-term-steroid-use-can-lead-significant-brain">study</a> hinted that long-term steroid use may even increase the risk of Alzheimer’s disease. Nearly a <a href="http://health.usnews.com/health-news/family-health/pain/articles/2009/02/20/1-in-10-ex-nfl-players--used--steroids-poll-reports">tenth</a> of ex-NFL players admit to having used steroids—I wonder how many more used them but won’t admit it.</span></p>
+<p><span style="font-size: 14pt;">Webster also apparently took amphetamine pills before some games, and later began taking high doses of another stimulant, Ritalin. Stimulants among other things interfere with sleep—Webster sometimes used a stun-gun to force himself into unconsciousness—and chronic sleep loss is another established contributor to neuropsychiatric issues, including psychosis; it also has been recently linked to <a href="http://www.ncbi.nlm.nih.gov/pubmed/22162057">dementia</a>.</span></p>
+<p><span style="font-size: 14pt;">Then there is the question of pre-existing mental instability. One of the lengthy newspaper <a href="http://www.post-gazette.com/ae/movies/2014/10/17/A-life-off-center-Mike-Webster-s-battles/stories/201410090319">profiles</a> written at the time of Webster’s NFL disability claim noted that as early as his college years, “Webster could be curiously erratic off the field . . .”</span></p>
+<p><span style="font-size: 14pt;">In fact, the ex-Steelers star did have a serious family history of mental illness, on both his mother’s and father’s sides. Although they never suggested that this history explained his deterioration, the authors of <em>League of Denial </em>at least <a href="http://www.amazon.com/League-Denial-Concussions-Battle-Truth/dp/0770437567">acknowledged </a>that:</span></p>
+<p style="padding-left: 30px;"><span style="font-size: 14pt;">[Webster&#8217;s father&#8217;s] own family history was riddled with turmoil and mental illness, including a brother who committed suicide. Webster’s mother had mental illness on her side of the family and eventually would have a nervous breakdown. A doctor later reported that among Webster’s four siblings, “all have had manic depressive illnesses, one requiring shock therapy and one who has had several suicide attempts.” His youngest brother, Joey, would spend much of his life in prison for a variety of crimes; in 1978, Webster’s fourth year in the NFL, Joey was convicted in Michigan on charges of bank robbery and illegal possession of firearms and sent to federal prison for 15 years.</span></p>
+<p><span style="font-size: 14pt;">The reference to “manic depressive” illness,” i.e., bipolar disorder, is interesting. If Webster had a tendency to mania (type I bipolar) and yet was also making heavy use of stimulants (which <a href="http://www.ncbi.nlm.nih.gov/pubmed/19015628">frequently induce mania</a>), that alone could have kept him in a near-constant addled state.</span></p>
+<p><span style="font-size: 14pt;">Most if not all of the ex-NFL stars who have died amid personal troubles and have been diagnosed postmortem with CTE also have histories, often including <a href="http://www.slate.com/articles/health_and_science/science/2012/05/junior_seau_s_suicide_are_concussions_responsible_.html">chronic pain and drug use</a>, that suggest alternative explanations for their symptoms.</span></p>
+<p><span style="font-size: 14pt;">It has to be emphasized too that “CTE” symptoms—depression, suicidality, difficulty focusing, memory loss—are already common in the <em>non</em>-football-playing population. And obviously there are many cases of non-athletes, at zero risk of CTE, who spiral into debt and other difficulties in middle age, become mentally unstable, become dependent on drugs or alcohol, and ultimately commit suicide.</span></p>
+<p><span style="font-size: 14pt;">With regard to ex-athletes’ impulsive and aggressive behaviors—again, supposedly typical signs of CTE&#8212;these, as mentioned, might have something to do with steroid use, which has been rampant in the NFL. But impulsive and aggressive behaviors might also spring from inborn traits that initially enable a person to become a star athlete, by ensuring quick and powerful performance on the field. Off the field, of course, the same traits would make the player more likely to commit violent and other impulsive acts. And although aging might have a mellowing effect on such traits, it also would involve the loss, post-career, of the structure and discipline of the playing season as well as the on-field outlet for aggression&#8212;both of which could make the off-field aggression more likely.</span></p>
+<p><span style="font-size: 14pt;">To sum up, let me quote one of the best known proponents of football-CTE as a major disease, BU neurologist Robert Stern, who <a href="http://www.usatoday.com/story/sports/nfl/2015/12/22/concussions-cte-research-study-eric-winston/77774968/">acknowledged</a> recently—perhaps starting to feel the heat from fellow scientists&#8212;that “[t]here has been a lot of hype about CTE that has gone beyond the science . . . Just because someone has depression doesn’t mean it’s CTE. Just because someone has problems with impulsivity doesn’t mean it’s CTE. Just because someone develops memory impairment and eventually dementia, that doesn’t mean it’s CTE.”</span></p>
+<p><span style="font-size: 14pt;"><strong>How we got here</strong></span></p>
+<p><span style="font-size: 14pt;">In late 2012, UNC researcher Kevin Guskiewicz, once a strong critic of the NFL’s inertia on neurological issues, told the authors of <em>League of Denial</em>: “The vast majority of the neuroscience community does not believe that research has established a causal relationship linking repetitive head trauma in football and CTE.”</span></p>
+<p><span style="font-size: 14pt;">Three years on, that is my own independent impression from looking through the literature, which is now full of critical reviews of CTE research. I would add that the most questionable link is not between repetitive head trauma and CTE-type tau tangles, but between the tangles and the alleged symptoms such as suicidality. The point here, in any case, is that this high-profile public health scare has been whipped into being by a vocal <em>minority</em> of researchers&#8212;despite the skepticism of a much less vocal majority.</span></p>
+<p><span style="font-size: 14pt;">Why did this happen? First off, I think it&#8217;s fair to say that some of the scientists in this minority saw an opportunity to turbo-charge their careers by setting up a new branch of neurodegenerative disease research and promoting its urgency. There were opportunities here for lots of funding and academic promotions&#8212;not to mention pop-media glory. The <em>League of Denial</em> book does a pretty good job of revealing (if not always deliberately) the less-than-noble ambitions that have driven some CTE researchers—whose antics at times add up to a bonfire of the scientific vanities. Yet I can’t think of a single popular media piece that has questioned these scientists’ motives. Only the skeptics have had their motives questioned—and they have sometimes been portrayed in the crudest terms as the NFL’s paid henchmen.</span></p>
+<p><span style="font-size: 14pt;">Why did the popular media side with a scientific minority making dubious claims? I guess the simplest factor is that these dubious claims and their associated anecdotes amounted to a dramatic <em>story</em>, whereas the majority’s caution and skepticism didn’t. NYU’s Barr has <a href="http://link.springer.com/content/pdf/10.1007%2Fs11065-013-9244-3.pdf">written</a> that:</span></p>
+<p style="padding-left: 30px;"><span style="font-size: 14pt;">Although results of controlled investigations of [sports-related concussion] and guidelines for its management indicate that the vast majority of athletes will demonstrate a full recovery within 1–2 weeks . . . the media has generally overlooked those findings and have focused instead on those cases of high-profile professional athletes who require longer periods to recover. The highly publicized accounts of these high-profile cases can give the public a biased perception of recovery rates expected following a concussion. Such a bias can result in what social scientists have termed as the availability cascade, a social phenomenon where empirical data are ignored by groups in favor of information that is more available to them through examples of dramatic individual cases . . .</span></p>
+<p><span style="font-size: 14pt;">Our culture now also puts a high value on victimhood, and has a Hollywood-encouraged tendency to pin big problems on Big Corporations&#8212;deep-pocketed villains who victimize people and then try to conceal and deny their nefarious deeds. Any story that can be squeezed to fit that paradigm will be. To facilitate that distortion, the science is tribalized, with heroes on one side and nefarious &#8220;deniers&#8221; on the other&#8212;critics of Omalu and McKee have even been accused of racism and sexism.</span></p>
+<p><span style="font-size: 14pt;">The CTE-scare narrative has probably been enabled as well by the fact that key journalists on the story have been sportwriters rather than science writers, e.g., the Fainaru brothers of ESPN, who did the <em>League of Denial</em> book and documentary, and Alan Schwartz, whose coverage for the NYT started when he was a sports stringer.</span></p>
+<p><span style="font-size: 14pt;">Lastly, it must have helped that science journalists themselves have done so little to debunk the wilder claims about CTE. One notable exception is <a href="http://www.slate.com/articles/sports/sports_nut/2015/12/the_truth_about_will_smith_s_concussion_and_bennet_omalu.html">Daniel Engber</a> at <em>Slate,</em> who by now has written several skeptical pieces about CTE. In my own small way I also wrote with moderate skepticism about CTE in a <a href="http://www.dana.org/News/Details.aspx?id=43184">piece </a>five years ago. On the whole, though, we science writers have really dropped the ball here. Why? I don’t know, but I guess that it has to do with a mindset that many science writers evince: a preference for abstraction, for pure and lawful Nature, over the messiness of the human world, the lawsuit and policy world, where unreason so often prevails.</span></p>
+<p>&nbsp;</p>
+<p><em><span style="color: #ff0000;">Originally published April 2, 2016</span></em></p>
+
+	</div>
+<!-- .entry-content -->
+
+	
+</article><!-- #post-## -->
+
+			</main><!-- #main -->
+
+		</div>
+<!-- #primary -->
+
+	</div>		<div class="sidebar-wrap col-md-3 content-left-wrap">
+			
+
+	<div id="secondary" class="widget-area" role="complementary">
+
+		
+		<aside id="custom_html-2" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"></div></aside>
+		
+	</div>
+<!-- #secondary -->
+
+			</div>
+<!-- .sidebar-wrap -->
+			</div>
+<!-- .container -->
+
+
+
+
+</div>
+<!-- .site-content -->
+
+
+<footer id="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+
+	
+	<div class="container">
+
+		
+		<div class="col-md-12 copyright">
+<p id="zerif-copyright">Content copyright © 2007-18 Jim Schnabel</p>	</div> <!-- / END CONTAINER -->
+
+ <!-- / END FOOOTER  -->
+
+
+	</div>
+<!-- mobile-bg-fix-whole-site -->
+</footer>
+</div>
+<!-- .mobile-bg-fix-wrap -->
+
+
+*/
+
+<script type="text/javascript" src="https://jimschnabel.github.io/wp-content/themes/zerif-lite/js/bootstrap.min.js?ver=20120206" id="zerif_bootstrap_script-js"></script>
+<script type="text/javascript" src="https://jimschnabel.github.io/wp-content/themes/zerif-lite/js/jquery.knob.js?ver=20120206" id="zerif_knob_nav-js"></script>
+<script type="text/javascript" src="https://jimschnabel.github.io/wp-content/themes/zerif-lite/js/smoothscroll.js?ver=20120206" id="zerif_smoothscroll-js"></script>
+<script type="text/javascript" src="https://jimschnabel.github.io/wp-content/themes/zerif-lite/js/scrollReveal.js?ver=20120206" id="zerif_scrollReveal_script-js"></script>
+<script type="text/javascript" src="https://jimschnabel.github.io/wp-content/themes/zerif-lite/js/zerif.js?ver=20120206" id="zerif_script-js"></script>
+<script type="text/javascript" src="https://jimschnabel.github.io/wp-includes/js/wp-embed.min.js?ver=5.7.2" id="wp-embed-js"></script>
+
+
+</div>
+</body>
+<p>
+
+
+
+*/
+</p>
+</html>
