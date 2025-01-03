@@ -9,21 +9,21 @@
 
 <channel>
 	<title>Jim Schnabel</title>
-	<atom:link href="https://jimschnabel.github.io/feed/" rel="self" type="application/rss+xml" />
-	<link>https://jimschnabel.github.io/</link>
+	<atom:link href="/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
 	<description></description>
-	<lastBuildDate>Fri, 26 Feb 2021 21:20:37 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 02 Jan 2025 22:14:30 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=5.7.2</generator>
+	<generator>https://wordpress.org/?v=6.7.1</generator>
 
 <image>
-	<url>https://jimschnabel.github.io/wp-content/uploads/js-site-icon-150x150.jpg</url>
+	<url>/wp-content/uploads/ico-js-100x100.jpg</url>
 	<title>Jim Schnabel</title>
-	<link>https://jimschnabel.github.io/</link>
+	<link>/</link>
 	<width>32</width>
 	<height>32</height>
 </image> 
